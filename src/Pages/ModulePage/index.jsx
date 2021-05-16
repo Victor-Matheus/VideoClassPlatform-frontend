@@ -3,6 +3,7 @@ import * as S from "./style";
 import Header from "../../Components/Header";
 import Sidebar from "../../Components/Sidebar";
 import VideoLeasson from "../../Components/VideoLeasson";
+import RegisterModuleForm from "../../Components/RegisterModuleForm";
 
 const ModulePage = () => {
   const [selectedModuleTitle, setSelectedModuleTitle] = useState("");
@@ -12,7 +13,7 @@ const ModulePage = () => {
   return (
     <S.Container>
       <S.RegisterModuleModal open={openRegisterModule} onClose={() => setOpenRegisterModule(false)}>
-          <VideoLeasson />
+          <RegisterModuleForm />
       </S.RegisterModuleModal>
       <S.HeaderDiv>
         <Header />
