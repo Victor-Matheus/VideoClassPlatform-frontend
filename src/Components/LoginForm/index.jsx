@@ -10,6 +10,7 @@ const LoginForm = () => {
     const [password, setPassword] = useState("");
 
     const handleLogin = () => {
+        console.log(email, password)
         axios.post(`${backendURL}/user/authenticate`, {
             email: email,
             password: password
@@ -19,7 +20,8 @@ const LoginForm = () => {
                 localStorage.setItem("loginToken", token)
             })
             .catch(err => {
-                alert(err.message);
+                console.log(err);
+                // alert(err);
             })
     }
 
@@ -32,7 +34,7 @@ const LoginForm = () => {
                     InputLabelProps={{ className: "inputLabelProps" }}
                     label="Email"
                     type="email"
-                    onChange={setEmail}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
                 <S.Textfield
                     InputProps={{ className: "inputProps" }}
@@ -40,7 +42,7 @@ const LoginForm = () => {
                     label="Senha"
                     type="password"
                     autoComplete="current-password"
-                    onChange={setPassword}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
             </S.InputDiv>
             <S.ButtonDiv >

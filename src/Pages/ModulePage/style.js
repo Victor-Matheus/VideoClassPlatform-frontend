@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Dialog, Button } from "@material-ui/core";
 
 export const Container = styled.div`
   width: 100%;
@@ -21,22 +22,30 @@ export const Content = styled.div`
 
 export const VideoLessonsDiv = styled.div`
   width: 100%;
+  margin-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  background: red;
 `;
 
 export const ClassModuleDiv = styled.div`
   width: 80%;
   height: 100%;
   display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
 `;
 
 export const ClassModuleDescription = styled.div`
-  width: 100%;
-  height: 18%;
+  width: 80%;
+  height: 7rem;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   background: #19181f;
+  position: absolute;
+  z-index: 1000;
   > h3 {
     color: lightgray;
     font-size: 1.5rem;
@@ -47,3 +56,9 @@ export const ClassModuleDescription = styled.div`
     font-size: 1rem;
   }
 `;
+
+export const RegisterModuleModal = styled(Dialog)`
+  .MuiDialog-paperWidthSm {
+    min-width: 40rem;
+  }
+`

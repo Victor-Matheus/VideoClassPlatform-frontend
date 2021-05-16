@@ -4,7 +4,7 @@ import ControlPointIcon from '@material-ui/icons/ControlPoint';
 
 const ClassModule = (props) => {
     return (
-        <S.Container>
+        <S.Container onClick={props.onClick}>
             <S.Content>
                 {props.plusIcon
                     ?

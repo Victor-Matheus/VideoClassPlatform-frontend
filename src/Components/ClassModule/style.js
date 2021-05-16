@@ -9,7 +9,7 @@ export const Container = styled.div`
     :hover{
         background: #222525;
     }
-cursor: pointer;
+    cursor: pointer;
 `
 
 export const Content = styled.div`
