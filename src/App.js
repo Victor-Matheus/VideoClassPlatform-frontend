@@ -6,6 +6,7 @@ import ModulePage from './Pages/ModulePage';
 import { GlobalStyles } from "./Styles/Global";
 import ProtectedRoute from './Utils/Routes/ProtectedRoute'
 import AlreadyLoggedRoute from './Utils/Routes/AlreadyLoggedRoute'
+import SignupPage from './Pages/SignupPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Switch>
           <ProtectedRoute path="/modules" render={() => <ModulePage />}/>
           <AlreadyLoggedRoute path="/login" render={() => <LoginPage />} />
+          <Route path="/signup" render={() => <SignupPage />} />
           <Route path="/" render={() => <HomePage />} />
         </Switch>
       </BrowserRouter>

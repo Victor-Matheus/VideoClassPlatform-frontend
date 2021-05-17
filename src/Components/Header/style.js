@@ -17,10 +17,16 @@ export const Content = styled.div`
     align-items: flex-end;
     >span{
         color: lightgray;
-        font-size: 1.3rem;
+        font-size: 1.1rem;
         cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         :hover{
             color: white;
         }
+    }
+    > hr{
+        width: 12rem;
     }
 `;

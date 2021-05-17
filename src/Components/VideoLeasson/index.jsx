@@ -3,6 +3,8 @@ import * as S from "./style";
 import Youtube from "react-youtube";
 import PlayCircleOutlineIcon from "@material-ui/icons/PlayCircleOutline";
 import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
+import axios from "axios";
+import { backendURL } from "../../Services/api";
 
 const VideoLeasson = (props) => {
   const [videoOpen, setVideoOpen] = useState(false);
@@ -14,6 +16,9 @@ const VideoLeasson = (props) => {
   const handleVideoClose = () => {
     setVideoOpen(false);
   };
+
+  const deleteVideo = () =>{
+  }
 
   return (
     <S.Container>
