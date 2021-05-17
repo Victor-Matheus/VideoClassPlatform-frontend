@@ -3,7 +3,7 @@ import { Dialog, Button } from "@material-ui/core";
 
 export const Container = styled.div`
   width: 100%;
-  height: 7rem;
+  height: 6.5rem;
   background: #1e1e26;
   display: flex;
   border-bottom: solid 1px #07d962;
@@ -69,3 +69,7 @@ export const DeleteButton = styled(Button)`
     }
   }
 `;
+
+export const DeleteLeassonModal = styled(Dialog)`
+  /* width: 40%; */
+`
