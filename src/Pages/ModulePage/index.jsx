@@ -8,6 +8,12 @@ import RegisterModuleForm from "../../Components/RegisterModuleForm";
 import axios from "axios";
 import { backendURL } from "../../Services/api";
 import ControlPointIcon from "@material-ui/icons/ControlPoint";
+import DeleteForeverIcon from "@material-ui/icons/DeleteForever";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import Button from "@material-ui/core/Button";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 const ModulePage = () => {
   const [token] = useState(localStorage.getItem("loginToken"));
@@ -17,6 +23,7 @@ const ModulePage = () => {
     useState("");
   const [openRegisterModule, setOpenRegisterModule] = useState(false);
   const [openRegisterLeasson, setOpenRegisterLeasson] = useState(false);
+  const [openDeleteClassAlert, setOpenDeleteClassAlert] = useState(false);
   const [leassons, setLeassons] = useState([]);
 
   const handleClassModule = (moduleId) => {
@@ -25,11 +32,25 @@ const ModulePage = () => {
         headers: { "x-access-token": `${token}` },
       })
       .then((res) => {
-        console.log(res);
         setLeassons(res.data);
       })
       .catch((err) => {
         console.log(err);
+      });
+  };
+
+  const deleteClassModule = () => {
+    axios
+      .delete(`${backendURL}/module/${selectedModuleId}`, {
+        headers: { "x-access-token": `${token}` },
+      })
+      .then((res) => {
+        alert("módulo excluído");
+        window.location.reload();
+      })
+      .catch((err) => {
+        alert("Ocorreu um erro ao exluir o módulo");
+        setOpenDeleteClassAlert(false);
       });
   };
 
@@ -48,18 +69,37 @@ const ModulePage = () => {
 
   return (
     <S.Container>
-      <S.RegisterModuleModal
-        open={openRegisterModule}
-        onClose={() => setOpenRegisterModule(false)}
-      >
-        <RegisterModuleForm />
-      </S.RegisterModuleModal>
-      <S.RegisterModuleModal
-        open={openRegisterLeasson}
-        onClose={() => setOpenRegisterLeasson(false)}
-      >
-        <RegisterLeassonForm moduleId={selectedModuleId} />
-      </S.RegisterModuleModal>
+        <S.RegisterModuleModal
+          open={openRegisterModule}
+          onClose={() => setOpenRegisterModule(false)}
+        >
+          <RegisterModuleForm />
+        </S.RegisterModuleModal>
+        <S.RegisterModuleModal
+          open={openRegisterLeasson}
+          onClose={() => setOpenRegisterLeasson(false)}
+        >
+          <RegisterLeassonForm moduleId={selectedModuleId} />
+        </S.RegisterModuleModal>
+        <S.RegisterModuleModal
+          open={openDeleteClassAlert}
+          onClose={() => setOpenDeleteClassAlert(false)}
+        >
+          <DialogTitle>Remover módulo</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Tem certeza que deseja remover o módulo permanentemente?
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button color="primary" onClick={() => setOpenDeleteClassAlert(false)}>
+              Não
+            </Button>
+            <Button autofocus color="secondary" onClick={() => deleteClassModule()}>
+              Sim
+            </Button>
+          </DialogActions>
+        </S.RegisterModuleModal>
       <S.HeaderDiv>
         <Header />
       </S.HeaderDiv>
@@ -73,8 +113,13 @@ const ModulePage = () => {
         />
         <S.ClassModuleDiv>
           <S.ClassModuleDescription>
-            <h3>{selectedModuleTitle}</h3>
-            <p>{selectedModuleDescription}</p>
+            <S.ClassModuleDescriptionText>
+              <h3>{selectedModuleTitle}</h3>
+              <p>{selectedModuleDescription}</p>
+            </S.ClassModuleDescriptionText>
+            <S.DeleteButton onClick={() => setOpenDeleteClassAlert(true)}>
+              <DeleteForeverIcon />
+            </S.DeleteButton>
           </S.ClassModuleDescription>
           <hr />
           <S.NewLeassonDiv onClick={() => setOpenRegisterLeasson(true)}>

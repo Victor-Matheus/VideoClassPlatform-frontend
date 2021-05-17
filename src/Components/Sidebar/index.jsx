@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from "react";
 import * as S from "./style";
 import ClassModule from "../ClassModule";
@@ -14,7 +15,6 @@ const Sidebar = (props) => {
         headers: { "x-access-token": `${token}` },
       })
       .then((res) => {
-        console.log(res);
         setModules(res?.data);
         props.moduleTitle(res?.data[0]?.title);
         props.moduleDescription(res?.data[0]?.description);

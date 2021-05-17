@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Dialog } from "@material-ui/core";
+import { Dialog, Button } from "@material-ui/core";
 
 export const Container = styled.div`
   width: 100%;
@@ -40,12 +40,20 @@ export const ClassModuleDescription = styled.div`
   width: 80%;
   height: 7rem;
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  flex-direction: row-reverse;
   align-items: center;
   background: #19181f;
   position: absolute;
   z-index: 1000;
+`;
+
+export const ClassModuleDescriptionText = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
   > h3 {
     color: lightgray;
     font-size: 1.5rem;
@@ -81,4 +89,16 @@ export const NewLeassonDiv = styled.div`
   }
   color: lightgray;
   cursor: pointer;
+`;
+
+export const DeleteButton = styled(Button)`
+  right: 1.5rem;
+  width: 1rem;
+  height: 2.5rem;
+  &.MuiButton-root {
+    background: #e82d92;
+    :hover {
+      background: lightpink;
+    }
+  }
 `;
