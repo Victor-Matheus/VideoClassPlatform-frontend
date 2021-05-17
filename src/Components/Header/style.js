@@ -15,4 +15,12 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    >span{
+        color: lightgray;
+        font-size: 1.3rem;
+        cursor: pointer;
+        :hover{
+            color: white;
+        }
+    }
 `;

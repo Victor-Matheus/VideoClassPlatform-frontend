@@ -4,14 +4,16 @@ import HomePage from "./Pages/Homepage";
 import LoginPage from "./Pages/LoginPage";
 import ModulePage from './Pages/ModulePage';
 import { GlobalStyles } from "./Styles/Global";
+import ProtectedRoute from './Utils/Routes/ProtectedRoute'
+import AlreadyLoggedRoute from './Utils/Routes/AlreadyLoggedRoute'
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Switch>
-          <Route path="/modules" render={() => <ModulePage />}/>
-          <Route path="/login" render={() => <LoginPage />} />
+          <ProtectedRoute path="/modules" render={() => <ModulePage />}/>
+          <AlreadyLoggedRoute path="/login" render={() => <LoginPage />} />
           <Route path="/" render={() => <HomePage />} />
         </Switch>
       </BrowserRouter>

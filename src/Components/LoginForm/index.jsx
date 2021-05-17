@@ -18,10 +18,10 @@ const LoginForm = () => {
             .then(res => {
                 let token = res.data.token
                 localStorage.setItem("loginToken", token)
+                window.location.reload();
             })
             .catch(err => {
-                console.log(err);
-                // alert(err);
+                alert("Erro ao efetuar o login");
             })
     }
 

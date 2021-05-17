@@ -19,10 +19,10 @@ const VideoLeasson = (props) => {
     <S.Container>
       <S.Content>
         <S.VideoModal open={videoOpen} onClose={handleVideoClose}>
-          <Youtube videoId="kIeaQjcJEco" />
+          <Youtube videoId={props.videoId ?? "_p7Jyyp_nDM"} />
         </S.VideoModal>
         <S.TitleDiv>
-          <h4>Título do vídeo</h4>
+          <h4>{props.title ?? "Vídeo"}</h4>
         </S.TitleDiv>
         <S.ButtonsDiv>
           <S.PlayButton onClick={handleYoutubeVideo}>

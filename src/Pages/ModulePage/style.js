@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Dialog, Button } from "@material-ui/core";
+import { Dialog } from "@material-ui/core";
 
 export const Container = styled.div`
   width: 100%;
@@ -22,7 +22,7 @@ export const Content = styled.div`
 
 export const VideoLessonsDiv = styled.div`
   width: 100%;
-  margin-top: 7rem;
+  margin-top: 10.5rem;
   display: flex;
   flex-direction: column;
   background: red;
@@ -61,4 +61,24 @@ export const RegisterModuleModal = styled(Dialog)`
   .MuiDialog-paperWidthSm {
     min-width: 40rem;
   }
-`
+`;
+export const NewLeassonDiv = styled.div`
+  width: 80%;
+  margin-top: 7rem;
+  height: 3.5rem;
+  border-bottom: solid 1px #67159c;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #19181f;
+  position: absolute;
+  z-index: 1000;
+  border-top: solid 1px black;
+  :hover {
+    background: #222525;
+  }
+  color: lightgray;
+  cursor: pointer;
+`;

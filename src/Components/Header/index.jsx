@@ -3,10 +3,15 @@ import * as S from './style';
 
 const Header = () => {
 
+    const logout = () => {
+        localStorage.clear();
+        window.location.reload();
+    }
+
     return (
         <S.Container>
             <S.Content>
-                <span>Logout</span>
+                <span onClick={()=> logout()}>Logout</span>
             </S.Content>
         </S.Container>
     );

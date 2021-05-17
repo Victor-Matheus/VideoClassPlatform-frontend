@@ -21,9 +21,11 @@ const RegisterModuleForm = () => {
             window.location.reload();
          })
          .catch(err => {
+             if(moduleTitle==="") return alert("O Módulo deve ter um título")
             alert("Erro ao cadastrar módulo")
          })
     }
+    
 
   return (
     <S.Container>

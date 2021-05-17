@@ -10,7 +10,7 @@ export default function ProtectedRoute({path, render}) {
     if (storageIsValid.length < 10) localStorage.clear();
   }else{
     localStorage.clear();
-    return <Redirect to={{pathname: "/login" }}/>
+    return <Redirect to={{pathname: "/" }}/>
   }
   const decodedToken = storageIsValid ? decode(localStorage.getItem("loginToken")) : 1;
 
@@ -21,7 +21,7 @@ export default function ProtectedRoute({path, render}) {
             <Route path={path} render={render} />
             : (
               <>
-                <Redirect to={{pathname: "/login" }}/>
+                <Redirect to={{pathname: "/" }}/>
                 {alert("Acesse sua conta", "Você precisa acessar sua conta antes de acessar essa página.")}
               </>)
         }
